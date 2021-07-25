@@ -1,24 +1,61 @@
-import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import { Col, Container, Row } from 'react-bootstrap'
 
+import { useState } from 'react';
+import ExpensesItems from './components/ExpensesItems';
+import NewExpenses from './components/NewExpenses';
+const Initial_Data = [
+  {
+    id: "1",
+    title: "Toilet Paper",
+    price: '94',
+    date: new Date(2020, 7, 14),
+  },
+  {
+    id: "2",
+    title: "New TV",
+    price: '28,999',
+    date: new Date(2021, 2, 12)
+  },
+  {
+    id: "3",
+    title: "Car Insurance",
+    price: '1,260',
+    date: new Date(2021, 5, 28),
+  },
+  {
+    id: "4",
+    title: "New Desk (Wooden)",
+    price: '25,999',
+    date: new Date(2021, 5, 12),
+  },
+];
 function App() {
+  const [expenses, setExpenses] = useState(Initial_Data);
+  const addExpense = (expense) => {
+    setExpenses((prevExpenses) => {
+      return [expense, ...prevExpenses];
+    });
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1 className='text-center text-secondary'>Expense Manager</h1>
+      <Container className='add-expense my-2'>
+        <Row className="justify-content-md-center">
+          <Col md={5} className='my-3'>
+            <NewExpenses onAddExpense={addExpense}></NewExpenses>
+          </Col>
+          {/* <Col md={8}>
+            <ExpensesItems items={expenses} />
+          </Col> */}
+        </Row>
+      </Container>
+      <Container className='view-expenses'>
+        <ExpensesItems items={expenses} />
+
+      </Container>
+    </>
   );
 }
 
