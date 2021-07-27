@@ -26,7 +26,7 @@ const Initial_Data = [
   },
   {
     id: "4",
-    title: "New Desk (Wooden)",
+    title: "New Desk(Wooden)",
     price: '25,999',
     date: new Date(2021, 5, 12),
   },
@@ -43,18 +43,17 @@ function App() {
       <h1 className='text-center text-secondary'>Expense Manager</h1>
       <Container className='add-expense my-2'>
         <Row className="justify-content-md-center">
-          <Col md={5} className='my-3'>
+          <Col md={4} className='my-3'>
             <NewExpenses onAddExpense={addExpense}></NewExpenses>
           </Col>
-          {/* <Col md={8}>
+          <Col md={8}>
             <ExpensesItems items={expenses} />
-          </Col> */}
+          </Col>
         </Row>
       </Container>
-      <Container className='view-expenses'>
+      {/* <Container className='view-expenses'>
         <ExpensesItems items={expenses} />
-
-      </Container>
+      </Container> */}
     </>
   );
 }
