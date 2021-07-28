@@ -1,11 +1,10 @@
-
 import React from 'react'
 import { FloatingLabel, Form } from 'react-bootstrap'
 
 function ExpensesFilter(props) {
     const dropdownChange = (e) => {
         props.onChangeFilter(e.target.value);
-        console.log(e.target.value)
+        // console.log(e.target.value)
     };
     return (
         <>
@@ -16,8 +15,6 @@ function ExpensesFilter(props) {
                         <option value="2021">2021</option>
                         <option value="2020">2020</option>
                         <option value="2019">2019</option>
-                        <option value="before-2019">Before 2019</option>
-
                     </Form.Select>
                 </FloatingLabel>
             </div>

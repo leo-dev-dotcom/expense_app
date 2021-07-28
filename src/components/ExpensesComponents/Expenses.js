@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
-import Dates from './Dates'
-import './Dates.css'
+import Dates from '../DateComponents/Dates'
+import '../DateComponents/Dates.css'
 function Expenses(props) {
 
     return (

@@ -19,7 +19,10 @@ function Forms(props) {
 
     let formSubmit = (e) => {
         e.preventDefault();
-        console.log('submitted')
+        // console.log('submitted')
+        if (titles === '' && prices === '' && dates === '') {
+            alert('Input field must not be empty')
+        }
         const data = {
             title: titles,
             price: prices,

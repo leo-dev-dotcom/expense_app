@@ -1,10 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { Col, Container, Row } from 'react-bootstrap'
-
 import { useState } from 'react';
-import ExpensesItems from './components/ExpensesItems';
-import NewExpenses from './components/NewExpenses';
+import ExpensesItems from './components/ExpensesComponents/ExpensesItems';
+import NewExpenses from './components/ExpensesComponents/NewExpenses'
 const Initial_Data = [
   {
     id: "1",
@@ -46,14 +45,14 @@ function App() {
           <Col md={4} className='my-3'>
             <NewExpenses onAddExpense={addExpense}></NewExpenses>
           </Col>
-          <Col md={8}>
+          {/* <Col md={8}>
             <ExpensesItems items={expenses} />
-          </Col>
+          </Col> */}
         </Row>
       </Container>
-      {/* <Container className='view-expenses'>
+      <Container className='view-expenses'>
         <ExpensesItems items={expenses} />
-      </Container> */}
+      </Container>
     </>
   );
 }

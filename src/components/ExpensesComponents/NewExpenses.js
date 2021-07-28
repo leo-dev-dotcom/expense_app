@@ -1,5 +1,5 @@
 import React from 'react'
-import Forms from './Forms'
+import Forms from '../FormComponents/Forms'
 
 function NewExpenses(props) {
     const saveExpenseData = (enteredExpenseData) => {
