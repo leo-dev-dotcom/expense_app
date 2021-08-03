@@ -12,6 +12,7 @@ function ExpensesFilter(props) {
                 <h5 className='text-info'>Filter by year &#8594;</h5>
                 <FloatingLabel controlId="floatingSelect" label="Sort By" className='text-light'>
                     <Form.Select value={props.selected} onChange={dropdownChange} className='w-auto btn-outline-secondary bg-dark border-dark'>
+                        <option value="2022">2022</option>
                         <option value="2021">2021</option>
                         <option value="2020">2020</option>
                         <option value="2019">2019</option>

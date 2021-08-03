@@ -10,22 +10,33 @@ function ExpensesItems(props) {
     const filterExpenses = props.items.filter((expense) => {
         return expense.date.getFullYear().toString() === filteredYear
     })
-    let viewExpenses = <p className='alert alert-danger' role="alert">No Expenses Found &#9785;</p>
+    // let viewExpenses = <p className='alert alert-danger' role="alert">No Expenses Found &#9785;</p>
 
-    if (filterExpenses.length > 0) {
-        viewExpenses = filterExpenses.map((expenses) => (
-            <Expenses title={expenses.title}
-                price={expenses.price}
-                date={expenses.date}
-                key={expenses.id}
-            />
-        ))
-    }
+    // if (filterExpenses.length > 0) {
+    //     viewExpenses = filterExpenses.map((expenses) => (
+    //         <Expenses title={expenses.title}
+    //             price={expenses.price}
+    //             date={expenses.date}
+    //             key={expenses.id}
+    //         />
+    //     ))
+    // }
     return (
         <div>
             <ExpensesFilter selected={filteredYear}
                 onChangeFilter={filterChange} />
-            {viewExpenses}
+            {/* {viewExpenses} */}
+            {filterExpenses.length > 0 && (
+                filterExpenses.map((expenses) => (
+                    <Expenses title={expenses.title}
+                        price={expenses.price}
+                        date={expenses.date}
+                        key={expenses.id} />
+                ))
+            )}
+            {!filterExpenses.length > 0 && (
+                <h6 className='alert alert-danger' role="alert">No Expenses Found &#9785;</h6>
+            )}
         </div>
     )
 }

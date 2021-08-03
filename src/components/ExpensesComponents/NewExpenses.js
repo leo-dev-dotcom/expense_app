@@ -1,7 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Forms from '../FormComponents/Forms'
 
 function NewExpenses(props) {
+    const [isUpdate, setUpdate] = useState(false)
+
+    let startUpdate = () => {
+        setUpdate(true)
+    }
+    let stopUpdate = () => {
+        setUpdate(false)
+    }
     const saveExpenseData = (enteredExpenseData) => {
         const expenseData = {
             ...enteredExpenseData,
@@ -11,7 +19,12 @@ function NewExpenses(props) {
     };
     return (
         <div>
-            <Forms onSaveExpensesData={saveExpenseData} />
+            {!isUpdate && (
+                <button className='btn btn-success text-dark' onClick={startUpdate}>Add New Expense</button>
+            )}
+            {isUpdate && (
+                <Forms onSaveExpensesData={saveExpenseData} onCancel={stopUpdate} />
+            )}
         </div>
     )
 }
