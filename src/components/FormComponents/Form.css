@@ -1,0 +1,16 @@
+.form_group.invalid input{
+    border-color:#ff0000;
+    background-color: #FCBAD3;
+    border-width: 2px;
+  }
+  
+  .form_group.invalid label{
+    visibility: hidden;
+  }
+
+  .form_group.invalid label::after{
+    color:#ff0000;
+    visibility: visible;
+    content: "* please fill out this field";
+    
+  }
